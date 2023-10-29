@@ -1,0 +1,115 @@
+body {
+    margin: 0; /* Xóa margin để đảm bảo thanh sidebar không bị lệch */
+}
+
+.sidebar {
+    width:250px;
+    background-color: #f0f0f0;
+    padding: 20px;
+    box-sizing: border-box;
+    position: fixed; /* Cố định vị trí */
+    height: 100%; /* Đặt chiều cao cho sidebar */
+}
+
+.sidebar-header {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+.sidebar-header h3 a {
+    text-decoration: none;
+    color:#000;
+
+} 
+
+.sidebar-content ul {
+    list-style: none;
+}
+
+.sidebar-content li {
+    margin-bottom: 15px;
+}
+.sidebar-content ul li:hover{
+    background-color: #ccc;
+}
+.sidebar-content li {
+    width: 100%; /* Đặt chiều rộng cho li */
+    border: none;
+    background: none;
+    /* text-align: left; */
+}
+
+.sidebar-content a {
+    text-decoration: none;
+    color: #333;
+    font-size: 15px;
+}
+
+.sidebar-content a:hover {
+    color: #000;
+}
+
+
+.sidebar-content li:hover {
+    transform: scale(1.1); /* Phóng to */
+}
+
+.sidebar-content li {
+    margin-bottom: 10px;
+    width: 100%; /* Chiếm đủ chiều rộng của container */
+}
+
+.sidebar-content li {
+    width: 100%;
+    padding: 10px;
+    text-align: left;
+}
+.content {
+    margin-left: 250px; /* Đặt margin để không bị che bởi sidebar */
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+
+
+h1 {
+    text-align: center;
+}
+form {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+input[type="file"] {
+    /* If you want to style the file input separately */
+}
+
+.Gui {
+    text-align: center;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}

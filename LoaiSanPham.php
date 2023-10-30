@@ -3,10 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" type="text/css" href="index.css">
     <link rel="stylesheet" href="SanPham.css">
+    <link rel="stylesheet" href="add.css">
     <script src="https://kit.fontawesome.com/a5308e13e8.js" crossorigin="anonymous"></script>
     <title>Quản Lý Kho PJ09</title>
+    
 </head>
 
 <body>
@@ -33,19 +35,17 @@
     <div class="content">
         <!-- Main content goes here -->
         <h1>Loại sản phẩm</h1>
-        <p><a href="ThemLoaiSanPham.php">Thêm Loại Sản Phẩm</a></p>
+        <form action="TimKiemLoaiSP.php" method="post">
+            <input type ="text" name="noidung">
+            <button type="submit" name ="search">Tìm kiếm</button>
+        </form>
+        <p ><a  href="ThemLoaiSanPham.php">Thêm Loại Sản Phẩm</a></p>
         <table>
         <thead>
             <tr>
                 <td>ID</td>
                 <td>Tên loại sản phẩm</td>
-                <td>
-                        <span> <a href="SuaLoaiSanPham.php?this_id=<?php echo $row['id'] ?>"> Sửa   </a></span>
-                    </td>
-                    <td>
-                        <span> <a href="XoaLoaiSanPham.php?this_id=<?php echo $row['id'] ?>"> Xóa </a></span>
-                        
-                </td>
+                
             </tr>
         </thead>
 

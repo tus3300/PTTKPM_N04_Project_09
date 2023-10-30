@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="add.css">
     <link rel="stylesheet" href="ThemSanPham.css">
     <script src="https://kit.fontawesome.com/a5308e13e8.js" crossorigin="anonymous"></script>
     <title>Quản Lý Kho PJ09</title>
@@ -45,7 +46,7 @@
                     echo "Vui lòng điền đầy đủ thông tin vào tất cả các trường.";
                 } else {
                     // Nếu tất cả các trường đã được điền, thực hiện thêm dữ liệu vào cơ sở dữ liệu
-                    $sql = "INSERT INTO loaisanpham (ten) VALUES ('$ten')";
+                    $sql = "INSERT INTO loaisanpham (ten_loai_sp) VALUES ('$ten')";
             
                     mysqli_query($conn, $sql);
 

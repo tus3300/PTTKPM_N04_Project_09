@@ -4,27 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="index.css">
-    
+    <link rel="stylesheet" href="add.css">
     <script src="https://kit.fontawesome.com/a5308e13e8.js" crossorigin="anonymous"></script>
     <title>Quản Lý Kho PJ09</title>
 </head>
-<style>
-    form {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content:center;
-        align-items: center;
-    }
-
-    label, input {
-        flex: 0 1 calc(50% - 10px);
-        margin-bottom: 10px;
-        padding:3px;
-    }
-</style>
-
-
 
 <body>
     <div class="sidebar">
@@ -48,8 +31,7 @@
     </div>
     <div class="content">
         <!-- Main content goes here -->
-        <h1>Main Content</h1>
-        <p>This is the main content area.</p>
+        <h1>Phiếu nhập</h1>
 
 
         <?php
@@ -132,6 +114,7 @@
             <div class="Nhap">
                 <button id=submit name="btn">Nhập</button>                   
             </div>
+
         </form>
         
     </div>

@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="SanPham.css">
+    <link rel="stylesheet" href="add.css">
     <script src="https://kit.fontawesome.com/a5308e13e8.js" crossorigin="anonymous"></script>
     <title>Quản Lý Kho PJ09</title>
 </head>
@@ -77,7 +78,7 @@
         ?>
 
         
-        <h1>Sửa sản phẩm: <?php echo $row['taikhoan'];?> 
+        <h1>Sửa tài khoản: <?php echo $row['taikhoan'];?> 
         </h1>
 
         <form method="post" enctype="multipart/form-data">

@@ -34,20 +34,22 @@
     <div class="content">
 
         <!-- Main content goes here -->
-        <h1>Quản lý tài khoản</h1>
+        <h1>Tài khoản</h1>
         <form action="TimKiemTK.php" method="post">
             <input type ="text" name="noidung">
             <button type="submit" name ="search">Tìm kiếm</button>
         </form>
-        <p><a href="ThemTaiKhoan.php">Thêm tài khoản</a></p>
-
+        <p></p>
+        
         <?php
-            session_start();
 
-            if(!isset($_SESSION['mySession'])) {
-                header('location:DangNhap.php');
-            }
+        if(isset($_POST["search"])){
+            $noidung = $_POST['noidung'];
+        }else {
+            echo $noidung =false;
+        }
         ?>
+
 
         <table>
                 <thead>
@@ -67,29 +69,21 @@
                 </thead>
 
                 <tbody>
-                    <?php   
-                    //ket noi database
-
-                    // include "connect.php";
-
-                    // $id ="";
-                    // $taikhoan = 'admin';
-                    // $matkhau = '123456';
-                    // $level = 1;
-
-                    // $sql = "INSERT TO thanhvien (id, taikhoan, matkhau, level)
-                    // VALUE('$id', '$taikhoan', '$matkhau', '$level') " ;
-
-                    // mysqLi_query($conn, $sql);
+                <?php
                     include "connect.php";
-
-                    $sql = "SELECT * FROM thanhvien";
+                    $sql = "SELECT * FROM thanhvien WHERE 
+                        taikhoan LIKE '%$noidung%' 
+                        OR matkhau LIKE '%$noidung%' 
+                        OR diachi LIKE '%$noidung%' 
+                        OR level LIKE '%$noidung%' 
+                        OR hoten LIKE '%$noidung%'
+                        OR sdt LIKE '%$noidung%' 
+                        OR namsinh LIKE '%$noidung%'";
 
                     $result = mysqli_query($conn , $sql);
 
-
-                    while ($row = mysqli_fetch_array($result) ) {                
-                    ?>  
+                    while ($row = mysqli_fetch_array($result) ) {             
+                ?>  
                         <tr>
                             <td><?php echo $row['id_tk'] ; ?></td>
                             <td><?php echo $row['taikhoan']; ?></td>
@@ -113,6 +107,9 @@
                     <?php }?>
                 </tbody>
         </table>
+
+         
+
         
     </div>
 </body>

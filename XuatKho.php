@@ -5,27 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="SanPham.css">
-    
+    <link rel="stylesheet" href="add.css">
     <script src="https://kit.fontawesome.com/a5308e13e8.js" crossorigin="anonymous"></script>
     <title>Quản Lý Kho PJ09</title>
 </head>
-<style>
-    form {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content:center;
-        align-items: center;
-    }
-
-    label, input {
-        flex: 0 1 calc(50% - 10px);
-        margin-bottom: 10px;
-        padding:3px;
-    }
-</style>
-
-
 
 <body>
     <div class="sidebar">
@@ -50,7 +33,11 @@
     <div class="content">
         <!-- Main content goes here -->
         <h1>Phiếu xuất kho</h1>
-        <p><a href="PhieuXuatKho.php">Thêm phiếu xuất</a></p>
+        <form action="TimKiemPXuat.php" method="post">
+            <input type ="text" name="noidung">
+            <button type="submit" name ="search">Tìm kiếm</button>
+        </form>
+        <p><a href="ThemPhieuXuat.php">Thêm phiếu xuất</a></p>
         <table>
         <thead>
             <tr>

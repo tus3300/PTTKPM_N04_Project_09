@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="SanPham.css">
+    <link rel="stylesheet" href="add.css">
     <script src="https://kit.fontawesome.com/a5308e13e8.js" crossorigin="anonymous"></script>
     <title>Quản Lý Kho PJ09</title>
 </head>
@@ -31,6 +32,10 @@
     </div>
     <div class="content">
         <!-- Main content goes here -->
+        <form action="TimKiemSP.php" method="post">
+            <input type ="text" name="noidung">
+            <button type="submit" name ="search">Tìm kiếm</button>
+        </form>
         <h1>Danh sách sản phẩm</h1>
         <p><a href="ThemSanPham.php">Thêm sản phẩm</a><p>
       
@@ -85,9 +90,9 @@
                     
                 </tr>
 
-            <?php } ?>
-        </tbody>
-    </table>
+                <?php } ?>
+            </tbody>
+        </table>
     </div>
 </body>
 </html>

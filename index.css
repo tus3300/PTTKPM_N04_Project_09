@@ -1,5 +1,5 @@
 body {
-    margin: 0; /* Xóa margin để đảm bảo thanh sidebar không bị lệch */
+    margin: 0;
 }
 
 .sidebar {
@@ -69,47 +69,7 @@ body {
     padding: 20px;
     box-sizing: border-box;
 }
-
-
-
 h1 {
+    font-size: 24px;
     text-align: center;
-}
-form {
-    max-width: 400px;
-    margin: 0 auto;
-}
-
-label {
-    display: block;
-    margin-bottom: 5px;
-}
-
-input {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
-input[type="file"] {
-    /* If you want to style the file input separately */
-}
-
-.Gui {
-    text-align: center;
-}
-
-button {
-    padding: 10px 20px;
-    background-color: #007BFF;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: #0056b3;
 }

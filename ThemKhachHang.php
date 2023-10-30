@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="ThemSanPham.css">
+    <link rel="stylesheet" href="add.css">
     <script src="https://kit.fontawesome.com/a5308e13e8.js" crossorigin="anonymous"></script>
     <title>Quản Lý Kho PJ09</title>
 </head>
@@ -31,8 +32,7 @@
     </div>
     <div class="content">
         <!-- Main content goes here -->
-        <h1>Thêm khách hàng</h1>
-
+        
 
         <?php
             include("connect.php");
@@ -60,7 +60,7 @@
 
             }
         ?>
-
+            <h1>Thêm khách hàng</h1>
             <form action="ThemKhachHang.php" method="post" enctype="multipart/form-data">
                 <label>Tên nhà cung cấp</label>
                 <input type="text" name="TenKH">

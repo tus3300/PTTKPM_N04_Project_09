@@ -32,10 +32,10 @@
     </div>
     <div class="content">
         <!-- Main content goes here -->
-        <h1>Phiếu xuất kho</h1>
-        <form action="TimKiemPXuat.php" method="post">
-            <input type ="text" name="noidung">
-            <button type="submit" name ="search">Tìm kiếm</button>
+        <form class="timkiem" action="XuatKho.php" method="post">
+            <h1>Phiếu xuất kho</h1>
+            <input type ="text" name="noidung"  placeholder="Tìm kiếm">
+            <button type="submit" name ="search"><i class="fas fa-search"></i></button>
         </form>
         <p><a href="ThemPhieuXuat.php">Thêm phiếu xuất</a></p>
         <table>

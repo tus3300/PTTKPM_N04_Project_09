@@ -109,7 +109,7 @@
             <label>Người xuất</label>
             <input type="text" name="NguoiXuat">
 
-            <div class="Nhap">
+            <div class="Gui">
                 <button id=submit name="btn">Xuất</button>                   
             </div>
         </form>

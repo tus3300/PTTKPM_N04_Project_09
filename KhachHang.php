@@ -33,11 +33,12 @@
     </div>
     <div class="content">
         <!-- Main content goes here -->
-        <h1>Khách hàng</h1>
-        <form action="TimKiemKH.php" method="post">
-            <input type ="text" name="noidung">
-            <button type="submit" name ="search">Tìm kiếm</button>
+        <form class="timkiem" action="TimKiemKH.php" method="post" >
+            <h1>Khách hàng</h1>
+            <input type ="text" name="noidung" placeholder="Tìm kiếm">
+            <button type="submit" name ="search"><i class="fas fa-search"></i></button>
         </form>
+        
         <p><a href="ThemKhachHang.php">Thêm khách hàng</a></p>
         
     <table>

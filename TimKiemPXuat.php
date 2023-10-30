@@ -34,11 +34,12 @@
     <div class="content">
 
         <!-- Main content goes here -->
-        <h1>Phiếu xuất</h1>
-        <form action="TimKiemPXuat.php" method="post">
+        <form class="timkiem" action="TimKiemPXuat.php" method="post" placeholder="Tìm kiếm">
             <input type ="text" name="noidung">
-            <button type="submit" name ="search">Tìm kiếm</button>
+            <button type="submit" name ="search"><i class="fas fa-search"></i></button>
         </form>
+        <h1>Phiếu xuất</h1>
+        
         <p></p>
         
         <?php

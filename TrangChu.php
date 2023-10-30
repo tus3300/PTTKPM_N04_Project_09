@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="add.css">
     <script src="https://kit.fontawesome.com/a5308e13e8.js" crossorigin="anonymous"></script>
     <title>Quản Lý Kho PJ09</title>
 </head>
@@ -32,8 +33,13 @@
     <div class="content">
 
         <!-- Main content goes here -->
-        <h1>Main Content</h1>
-        <p>This is the main content area.</p>
+        <form class="timkiem" action="TimKiemSP.php" method="post">
+            <h1>Trang chủ</h1>
+            <input type ="text" name="noidung" placeholder="Tìm kiếm">
+            <button type="submit" name ="search"><i class="fas fa-search"></i></button>
+        </form>
+        
+        <p></p>
 
         <?php
             session_start();
@@ -42,10 +48,7 @@
                 header('location:DangNhap.php');
             }
         ?>
-        <form action="TimKiemSP.php" method="post">
-            <input type ="text" name="noidung">
-            <button type="submit" name ="search">Tìm kiếm</button>
-        </form>
+        
         
         
     </div>

@@ -62,7 +62,7 @@
             }
         ?>
 
-            <form action="ThemNhaCungCap.php" method="post" enctype="multipart/form-data">
+            <form  action="ThemNhaCungCap.php" method="post" enctype="multipart/form-data">
                 <label>Tên nhà cung cấp</label>
                 <input type="text" name="TenNcc">
 

@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="add.css">
+    <link rel="stylesheet" href="ThemSanPham.css">
     <script src="https://kit.fontawesome.com/a5308e13e8.js" crossorigin="anonymous"></script>
     <title>Quản Lý Kho PJ09</title>
 </head>
@@ -111,7 +112,7 @@
             <label>Người Nhập</label>
             <input type="text" name="NguoiNhap">
 
-            <div class="Nhap">
+            <div class="Gui">
                 <button id=submit name="btn">Nhập</button>                   
             </div>
 

@@ -34,11 +34,13 @@
 
     <div class="content">
         <!-- Main content goes here -->
-        <h1>Loại sản phẩm</h1>
-        <form action="TimKiemLoaiSP.php" method="post">
-            <input type ="text" name="noidung">
-            <button type="submit" name ="search">Tìm kiếm</button>
+        <form class="timkiem" action="TimKiemLoaiSP.php" method="post" >
+            <h1>Loại sản phẩm</h1>
+            <input type ="text" name="noidung" placeholder="Tìm kiếm">
+            <button type="submit" name ="search"><i class="fas fa-search"></i></button>
         </form>
+        
+        
         <p ><a  href="ThemLoaiSanPham.php">Thêm Loại Sản Phẩm</a></p>
         <table>
         <thead>

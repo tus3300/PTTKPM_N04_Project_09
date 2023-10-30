@@ -9,6 +9,9 @@
     <script src="https://kit.fontawesome.com/a5308e13e8.js" crossorigin="anonymous"></script>
     <title>Quản Lý Kho PJ09</title>
 </head>
+<style>
+
+</style>
 
 <body>
     <div class="sidebar">
@@ -32,11 +35,13 @@
     </div>
     <div class="content">
         <!-- Main content goes here -->
-        <h1>Nhập kho</h1>
-        <form action="TimKiemPNhap.php" method="post">
-            <input type ="text" name="noidung">
-            <button type="submit" name ="search">Tìm kiếm</button>
+        <form class="timkiem" action="TimKiemPNhap.php" method="post">
+            <h1>Nhập kho</h1>
+            <input type ="text" name="noidung"  placeholder="Tìm kiếm">
+            <button type="submit" name ="search"><i class="fas fa-search"></i></button>
         </form>
+        
+        
         <p><a href="PhieuNhap.php">Thêm Phiếu nhập</a></p>
         <table>
         <thead>

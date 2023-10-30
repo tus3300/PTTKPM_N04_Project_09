@@ -32,13 +32,13 @@
         </div>
     </div>
     <div class="content">
-
+        <form class="timkiem" action="TimKiemLoaiSP.php" method="post" placeholder="Tìm kiếm">
+            <input type ="text" name="noidung">
+            <button type="submit" name ="search"><i class="fas fa-search"></i></button>
+        </form>
         <!-- Main content goes here -->
         <h1>Loại sản phẩm</h1>
-        <form action="TimKiemLoaiSP.php" method="post">
-            <input type ="text" name="noidung">
-            <button type="submit" name ="search">Tìm kiếm</button>
-        </form>
+        
         <p></p>
         
         <?php

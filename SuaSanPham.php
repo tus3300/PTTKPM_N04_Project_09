@@ -46,11 +46,14 @@
             //khi nhấn nút edit
             if(isset($_POST["btn"])){
                 $ten_sp = $_POST['TenSP'];
-
-                // chỉ lấy tên hình ảnh
-                $anh_sp = $_FILES['HinhAnh']['name'];
-                // lấy đường dẫn ảnh
-                $anh_tmp_name = $_FILES['HinhAnh']['tmp_name'];
+                
+                if (!empty($_FILES['HinhAnh']['name'])) {
+                    $anh_sp = $_FILES['HinhAnh']['name'];
+                    $anh_tmp_name = $_FILES['HinhAnh']['tmp_name'];
+                } else {
+                    // Nếu không có ảnh mới, giữ nguyên tên ảnh cũ
+                    $anh_sp = $row['anh_sp']; // Gán tên tệp ảnh cũ vào biến
+                }
 
                 $mota_sp = $_POST['MoTa'];
 
@@ -102,7 +105,6 @@
 
             <label>Giá Nhập</label>
             <input type="number" name="GiaNhap" value="<?php echo $row['gia_nhap_sp'] ?>">
-
             
             <label>Nhà Cung Cấp</label>
             <input type="text" name="NhaCungCap" value="<?php echo $row['nha_cung_cap_sp'] ?>">

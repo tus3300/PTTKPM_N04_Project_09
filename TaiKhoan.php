@@ -34,11 +34,12 @@
     <div class="content">
 
         <!-- Main content goes here -->
-        <form class="timkiem" action="TimKiemTK.php" method="post" placeholder="Tìm kiếm">
-            <input type ="text" name="noidung">
+        <form class="timkiem" action="TimKiemTK.php" method="post" >
+            <h1>Quản lý tài khoản</h1>
+            <input type ="text" name="noidung" placeholder="Tìm kiếm">
             <button type="submit" name ="search"><i class="fas fa-search"></i></button>
         </form>
-        <h1>Quản lý tài khoản</h1>
+        
         
         <p><a href="ThemTaiKhoan.php">Thêm tài khoản</a></p>
 
@@ -62,8 +63,7 @@
                         <td>Năm Sinh</td>
                         <td>Số Điện Thoại</td>
                         <td>Địa Chỉ</td>
-                        <td>Sửa</td>
-                        <td>Xóa</td>
+                        
                     </tr>
                 </thead>
 
@@ -96,7 +96,7 @@
                             <td><?php echo $row['taikhoan']; ?></td>
                             <td><?php echo $row['matkhau']; ?></td>
                             <td><?php echo $row['level']; ?></td>
-                            <td> <img src="images/<?php echo $row['anh_tv']?>" alt=""> </td>
+                            <td> <img src="images/<?php echo $row['anh_tv']?>" alt="" > </td>
                             <td><?php echo $row['hoten']; ?></td>
                             <td><?php echo $row['namsinh']; ?></td>
                             <td><?php echo $row['sdt']; ?></td>

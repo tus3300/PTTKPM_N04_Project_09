@@ -7,5 +7,5 @@
 
     mysqli_query($conn, $sql);
 
-    header('location:PhieuNhap.php');
+    header('location:NhapKho.php');
 ?>

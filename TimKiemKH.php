@@ -34,12 +34,13 @@
 
         <!-- Main content goes here -->
         <form class="timkiem" action="TimKiemKH.php" method="post" placeholder="Tìm kiếm">
+            <h1>Tìm kiếm Khách hàng</h1>
             <input type ="text" name="noidung">
             <button type="submit" name ="search"><i class="fas fa-search"></i></button>
         </form>
-        <h1>Main Content</h1>
         
-        <p>This is the main content area.</p>
+        
+      
         
         <?php
 

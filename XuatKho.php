@@ -52,8 +52,7 @@
                 <td>Số lượng</td>
                 <td>Thành Tiền</td>
                 <td>Người Nhập</td>
-                <td>Sửa</td>
-                <td>Xóa</td>
+               
             </tr>
         </thead>
 
@@ -63,8 +62,11 @@
 
                 $sql = "SELECT * FROM phieuxuat";
                 $result = mysqli_query($conn, $sql);
+                $TongTienXuat = 0;
 
                 while ($row = mysqli_fetch_array($result)) {
+                    $thanh_tien =$row['tong_tien_hang'];
+                    $TongTienXuat +=$thanh_tien;
                     
             ?>  
                 <tr>
@@ -77,7 +79,7 @@
                     <td><?php echo $row['loai_sp']?> </td>
                     <td><?php echo $row['gia_ban_sp']?> </td>                
                     <td><?php echo $row['so_luong_xuat']?> </td>
-                    <td><?php echo $row['tong_tien_hang_xuat']?> </td>
+                    <td><?php echo $row['tong_tien_hang']?> </td>
                     <td><?php echo $row['nguoi_xuat']?> </td>
                     <td>
                         <span> <a href="SuaPhieuXuat.php?this_id=<?php echo $row['id_phieu_xuat'] ?>"> Sửa   </a></span>
@@ -90,6 +92,7 @@
                 </tr>
 
             <?php } ?>
+            <h1>Tổng tiền hàng đã xuất : <?php echo $TongTienXuat ?> </h1>
         </tbody>
     </table>
         

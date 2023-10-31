@@ -52,9 +52,13 @@
 
             $ten_sp = $_POST['TenSP'];
 
-            $anh_sp = $_FILES['HinhAnh']['name'];
-            // lấy đường dẫn ảnh
-            $anh_tmp_name = $_FILES['HinhAnh']['tmp_name'];
+            if (!empty($_FILES['HinhAnh']['name'])) {
+                $anh_sp = $_FILES['HinhAnh']['name'];
+                $anh_tmp_name = $_FILES['HinhAnh']['tmp_name'];
+            } else {
+                // Nếu không có ảnh mới, giữ nguyên tên ảnh cũ
+                $anh_sp = $row['anh_sp']; // Gán tên tệp ảnh cũ vào biến
+            }
 
             $mota_sp = $_POST['MoTa'];
 
@@ -119,7 +123,7 @@
             <input type="text" name="NguoiNhap" value="<?php echo $row['nguoi_nhap'] ?>">
 
 
-            <div class="Sua">
+            <div class="Gui">
                 <button id=submit name="btn">Sửa</button>                   
             </div>
         </form>

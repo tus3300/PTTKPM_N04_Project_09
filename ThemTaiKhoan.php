@@ -62,7 +62,7 @@
                     echo "Vui lòng điền đầy đủ thông tin vào tất cả các trường.";
                 } else {
                     // Nếu tất cả các trường đã được điền, thực hiện thêm dữ liệu vào cơ sở dữ liệu
-                    $sql = "INSERT INTO thanhvien (taikhoan, matkhau, level, anh, hoten, namsinh, sdt, diachi)
+                    $sql = "INSERT INTO thanhvien (taikhoan, matkhau, level, anh_tv, hoten, namsinh, sdt, diachi)
                         VALUES ('$taikhoan', '$matkhau', '$level', '$anh', '$hoten', '$namsinh', '$sdt', '$diachi')";
             
                     mysqli_query($conn, $sql);

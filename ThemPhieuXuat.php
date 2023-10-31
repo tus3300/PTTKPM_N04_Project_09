@@ -9,6 +9,7 @@
     <script src="https://kit.fontawesome.com/a5308e13e8.js" crossorigin="anonymous"></script>
     <title>Quản Lý Kho PJ09</title>
 </head>
+
 <body>
     <div class="sidebar">
         <div class="sidebar-header">
@@ -31,89 +32,73 @@
     </div>
     <div class="content">
         <!-- Main content goes here -->
-        <h1>Phiếu xuất Kho</h1>
+        <h1>Phiếu Xuất</h1>
+
         <?php
-            include("connect.php");
-            
-            if( isset($_POST['btn']) ){
-                $ngay_xuat = $_POST['NgayXuat'];
+        include("connect.php");
+        
+        if (isset($_POST['btn'])) {
+            $ngay_xuat = $_POST['NgayXuat'];
+            $so_luong_xuat = $_POST['SoLuong'];
+            $this_id = $_POST['IdSP'];
+            $nguoi_xuat = $_POST['NguoiXuat'];
 
-                $nha_cung_cap_sp = $_POST['NhaCungCap'];
+            // Truy vấn giá Xuất sản phẩm
+            $sql_sp = "SELECT ten_sp, mota_sp, loai_sp, gia_ban_sp, nha_cung_cap_sp, anh_sp FROM sanpham WHERE id_sp = $this_id";
+            $result_sp = $conn->query($sql_sp);
 
-                $ten_sp = $_POST['TenSP'];
+            if ($result_sp->num_rows > 0) {
+                $row_sp = $result_sp->fetch_assoc();
+                $ten_sp = $row_sp["ten_sp"];
+                $anh_sp = $row_sp["anh_sp"];
+                $nha_cung_cap_sp = $row_sp["nha_cung_cap_sp"];
+                $mota_sp = $row_sp["mota_sp"];
+                $loai_sp = $row_sp["loai_sp"];
+                $gia_ban_sp = $row_sp["gia_ban_sp"];
+                $tong_tien_hang = $so_luong_xuat * $gia_ban_sp;
 
-                // chỉ lấy tên hình ảnh
-                $anh_sp = $_FILES['HinhAnh']['name'];
-                // lấy đường dẫn ảnh
-                $anh_tmp_name = $_FILES['HinhAnh']['tmp_name'];
-
-                $mota_sp = $_POST['MoTa'];
-
-                $loai_sp = $_POST['LoaiSP'];
-
-                $gia_ban_sp = $_POST['GiaBan'];
-
-                $so_luong = $_POST['SoLuong'];
-                
-                $tong_tien_hang = $_POST['TienXuatHang'];
-
-                $nguoi_xuat = $_POST['NguoiXuat'];
-
-                
-
-                if (empty($ten_sp) || empty($anh_sp) || empty($mota_sp) || empty($loai_sp) || empty($ngay_xuat) || empty($gia_ban_sp) || empty($nha_cung_cap_sp) || empty($so_luong) || empty($tong_tien_hang) || empty($ngay_xuat)) {
-                    echo "Vui lòng điền đầy đủ thông tin vào tất cả các trường.";
-                } else {
-                    // Nếu tất cả các trường đã được điền, thực hiện thêm dữ liệu vào cơ sở dữ liệu
-                    $sql = "INSERT INTO phieuxuat (ten_sp, anh_sp, mota_sp, loai_sp, ngay_xuat, gia_ban_sp, nha_cung_cap_sp, so_luong_xuat, tong_tien_hang_xuat, nguoi_xuat)
-                        VALUES ('$ten_sp', '$anh_sp', '$mota_sp', '$loai_sp', '$ngay_xuat', '$gia_ban_sp', '$nha_cung_cap_sp', '$so_luong', '$tong_tien_hang', '$nguoi_xuat')";
-            
+                // Kiểm tra các trường thông tin không được bỏ trống
+                if (!empty($ngay_xuat) && !empty($so_luong_xuat) && !empty($tong_tien_hang) && !empty($this_id)) {
+                    $sql = "INSERT INTO phieuxuat (ngay_xuat,so_luong_xuat, nguoi_xuat,ten_sp, mota_sp,loai_sp,tong_tien_hang, nha_cung_cap_sp,anh_sp,gia_ban_sp) 
+                    VALUES ('$ngay_xuat','$so_luong_xuat','$nguoi_xuat','$ten_sp','$mota_sp', '$loai_sp',' $tong_tien_hang','$nha_cung_cap_sp','$anh_sp','$gia_ban_sp')";
                     mysqli_query($conn, $sql);
-                    move_uploaded_file($anh_tmp_name, 'images/' . $anh_sp);
+
                     
-                    header('location:XuatKho.php');
-                    // Sau khi thêm dữ liệu thành công, bạn có thể thực hiện chuyển hướng hoặc hiển thị thông báo thành công tại đây
+                    // Cập nhật số lượng mới vào cơ sở dữ liệu
+                    $sql_update = "UPDATE sanpham SET sl_ton = sl_ton - $so_luong_xuat  WHERE id_sp = $this_id";
+                    if ($conn->query($sql_update) === TRUE) {
+                        header("Location: XuatKho.php");
+                    } else {
+                        echo "Lỗi cập nhật số lượng: " . $conn->error;
+                    }
+                } else {
+                    echo "Vui lòng điền đầy đủ thông tin vào tất cả các trường.";
                 }
-
+            } else {
+                echo "Không tìm thấy sản phẩm có ID tương ứng.";
             }
-        ?>
 
-        <form action="PhieuXuatKho.php" method="post" enctype="multipart/form-data">
-            <label>Ngày xuất</label>
+
+
+        }
+        ?>
+        <form action="ThemPhieuXuat.php" method="post" enctype="multipart/form-data">
+            <label>Ngày Xuất</label>
             <input type="date" name="NgayXuat">
 
-            <label>Nhà Cung Cấp</label>
-            <input type="text" name="NhaCungCap">
-
-            <label>Tên sản phẩm</label>
-            <input type="text" name="TenSP">
-
-            <label>Ảnh</label>
-            <input type="file" name="HinhAnh">
-
-            <label>Mô Tả</label>
-            <input type="text" name="MoTa">
-
-            <label>Loại sản phẩm</label>
-            <input type="text" name="LoaiSP">
-
-            <label>Giá bán</label>
-            <input type="number" name="GiaBan">
+            <label>ID sản phẩm</label>
+            <input type="text" name="IdSP">
 
             <label>Số lượng</label>
             <input type="number" name="SoLuong">
 
-            <label>Tổng tiền xuất hàng</label>
-            <input type="number" name="TienXuatHang">
-            
-            <label>Người xuất</label>
+            <label>Người Xuất</label>
             <input type="text" name="NguoiXuat">
 
             <div class="Gui">
-                <button id=submit name="btn">Xuất</button>                   
+                <button id="submit" name="btn">Xuất</button>
             </div>
         </form>
-        
     </div>
 </body>
 </html>

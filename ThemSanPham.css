@@ -5,12 +5,12 @@ form {
 
 label {
     display: block;
-    margin-bottom: 3px;
+    margin-bottom: 4px;
 }
 
 input {
     width: 100%;
-    padding: 5px;
+    padding: 8px;
     margin-bottom: 5px;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -20,11 +20,12 @@ input {
 } */
 
 .Gui {
+    margin-top: 20px;
     text-align: center;
 }
 
 button {
-    padding: 5px 10px;
+    padding: 10px 20px;
     background-color: #007BFF;
     color: #fff;
     border: none;

@@ -3,8 +3,6 @@ p {
     margin-bottom: 20px;
     text-align: right;
     margin-right: 10px;
-    margin-bottom: 30px;
-    
 }
 p a {
     text-decoration: none;
@@ -21,21 +19,21 @@ a:hover {
 
 /* input[type="file"] {
 } */
-
-
-/* CSS cho biểu mẫu tìm kiếm */
+/* CSS tìm kiếm */
 .timkiem {
     /* margin: 10px 0; */
-    padding: 10px;
-    background: #f5f5f5;
+    background-color: rgb(167, 211, 211);
     display: flex;
     border:none;
     justify-content:start;
     align-items: center;
-    background: transparent;
+    padding: 10px;
+    /* border-radius: 0 0 10px 10px; */
+
 }
 .timkiem h1 {
     margin-right: 150px;
+    margin-left: 10px;
 }
 
 .timkiem input[type="text"] {

@@ -38,7 +38,7 @@
             <button type="submit" name ="search"><i class="fas fa-search"></i></button>
         </form>
         
-        <p><a href="ThemSanPham.php">Thêm sản phẩm</a><p>
+        <p><a href="ThemSanPham.php">Thêm sản phẩm </a><p>
       
         <table>
         <thead>
@@ -54,8 +54,6 @@
                 <td>Số lượng tồn</td>
                 <td>SL tồn tối thiểu</td>
                 <td>Ngày nhập</td>
-                <td>Sửa</td>
-                <td>Xóa</td>
             </tr>
         </thead>
 

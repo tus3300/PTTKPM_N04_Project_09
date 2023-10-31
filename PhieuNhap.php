@@ -34,90 +34,71 @@
         <!-- Main content goes here -->
         <h1>Phiếu nhập</h1>
 
-
         <?php
-            include("connect.php");
-            
-            if( isset($_POST['btn']) ){
-                $ngay_nhap = $_POST['NgayNhap'];
+        include("connect.php");
+        
+        if (isset($_POST['btn'])) {
+            $ngay_nhap = $_POST['NgayNhap'];
+            $so_luong_nhap = $_POST['SoLuong'];
+            $this_id = $_POST['IdSP'];
+            $nguoi_nhap = $_POST['NguoiNhap'];
 
-                $nha_cung_cap_sp = $_POST['NhaCungCap'];
+            // Truy vấn giá nhập sản phẩm
+            $sql_sp = "SELECT ten_sp, mota_sp, loai_sp, gia_nhap_sp, nha_cung_cap_sp, anh_sp FROM sanpham WHERE id_sp = $this_id";
+            $result_sp = $conn->query($sql_sp);
 
-                $ten_sp = $_POST['TenSP'];
+            if ($result_sp->num_rows > 0) {
+                $row_sp = $result_sp->fetch_assoc();
+                $ten_sp = $row_sp["ten_sp"];
+                $anh_sp = $row_sp["anh_sp"];
+                $nha_cung_cap_sp = $row_sp["nha_cung_cap_sp"];
+                $mota_sp = $row_sp["mota_sp"];
+                $loai_sp = $row_sp["loai_sp"];
+                $gia_nhap_sp = $row_sp["gia_nhap_sp"];
+                $tong_tien_hang = $so_luong_nhap * $gia_nhap_sp;
 
-                // chỉ lấy tên hình ảnh
-                $anh_sp = $_FILES['HinhAnh']['name'];
-                // lấy đường dẫn ảnh
-                $anh_tmp_name = $_FILES['HinhAnh']['tmp_name'];
-
-                $mota_sp = $_POST['MoTa'];
-
-                $loai_sp = $_POST['LoaiSP'];
-
-                $gia_nhap_sp = $_POST['GiaNhap'];
-
-                $so_luong = $_POST['SoLuong'];
-                
-                $tong_tien_hang = $_POST['TienNhapHang'];
-
-                $nguoi_nhap = $_POST['NguoiNhap'];
-
-                
-
-                if (empty($ten_sp) || empty($anh_sp) || empty($mota_sp) || empty($loai_sp) || empty($ngay_nhap) || empty($gia_nhap_sp) || empty($nha_cung_cap_sp) || empty($so_luong) || empty($tong_tien_hang) || empty($ngay_nhap)) {
-                    echo "Vui lòng điền đầy đủ thông tin vào tất cả các trường.";
-                } else {
-                    // Nếu tất cả các trường đã được điền, thực hiện thêm dữ liệu vào cơ sở dữ liệu
-                    $sql = "INSERT INTO phieunhap (ten_sp, anh_sp, mota_sp, loai_sp, ngay_nhap, gia_nhap_sp, nha_cung_cap_sp, so_luong, tong_tien_hang, nguoi_nhap)
-                        VALUES ('$ten_sp', '$anh_sp', '$mota_sp', '$loai_sp', '$ngay_nhap', '$gia_nhap_sp', '$nha_cung_cap_sp', '$so_luong', '$tong_tien_hang', '$nguoi_nhap')";
-            
+                // Kiểm tra các trường thông tin không được bỏ trống
+                if (!empty($ngay_nhap) && !empty($so_luong_nhap) && !empty($tong_tien_hang) && !empty($this_id)) {
+                    $sql = "INSERT INTO phieunhap (ngay_nhap,so_luong,nguoi_nhap,ten_sp, mota_sp,loai_sp,gia_nhap_sp,tong_tien_hang, nha_cung_cap_sp,anh_sp) 
+                    VALUES ('$ngay_nhap','$so_luong_nhap','$nguoi_nhap','$ten_sp','$mota_sp', '$loai_sp','$gia_nhap_sp',' $tong_tien_hang','$nha_cung_cap_sp','$anh_sp')";
                     mysqli_query($conn, $sql);
-                    move_uploaded_file($anh_tmp_name, 'images/' . $anh_sp);
+
                     
-                    header('location:NhapKho.php');
-                    // Sau khi thêm dữ liệu thành công, bạn có thể thực hiện chuyển hướng hoặc hiển thị thông báo thành công tại đây
+                    // Cập nhật số lượng mới vào cơ sở dữ liệu
+                    $sql_update = "UPDATE sanpham SET sl_ton = sl_ton + $so_luong_nhap  WHERE id_sp = $this_id";
+                    if ($conn->query($sql_update) === TRUE) {
+                        header("Location: NhapKho.php");
+                    } else {
+                        echo "Lỗi cập nhật số lượng: " . $conn->error;
+                    }
+                } else {
+                    echo "Vui lòng điền đầy đủ thông tin vào tất cả các trường.";
                 }
-
+            } else {
+                echo "Không tìm thấy sản phẩm có ID tương ứng.";
             }
-        ?>
 
+
+
+        }
+        ?>
         <form action="PhieuNhap.php" method="post" enctype="multipart/form-data">
             <label>Ngày Nhập</label>
             <input type="date" name="NgayNhap">
 
-            <label>Nhà Cung Cấp</label>
-            <input type="text" name="NhaCungCap">
-
-            <label>Tên sản phẩm</label>
-            <input type="text" name="TenSP">
-
-            <label>Ảnh</label>
-            <input type="file" name="HinhAnh">
-
-            <label>Mô Tả</label>
-            <input type="text" name="MoTa">
-
-            <label>Loại sản phẩm</label>
-            <input type="text" name="LoaiSP">
-
-            <label>Giá Nhập</label>
-            <input type="number" name="GiaNhap">
+            <label>ID sản phẩm</label>
+            <input type="text" name="IdSP">
 
             <label>Số lượng</label>
             <input type="number" name="SoLuong">
 
-            <label>Tổng tiền nhập hàng</label>
-            <input type="number" name="TienNhapHang">
-            
             <label>Người Nhập</label>
             <input type="text" name="NguoiNhap">
 
             <div class="Gui">
-                <button id=submit name="btn">Nhập</button>                   
+                <button id="submit" name="btn">Nhập</button>
             </div>
-
         </form>
-        
     </div>
 </body>
 </html>

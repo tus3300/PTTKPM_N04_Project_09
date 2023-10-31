@@ -51,10 +51,13 @@
 
                 $level = $_POST['level'];
 
-                // chỉ lấy tên hình ảnh
-                $anh_tv = $_FILES['HinhAnh']['name'];
-                // lấy đường dẫn ảnh
-                $anh_tmp_name = $_FILES['HinhAnh']['tmp_name'];
+                if (!empty($_FILES['HinhAnh']['name'])) {
+                    $anh_sp = $_FILES['HinhAnh']['name'];
+                    $anh_tmp_name = $_FILES['HinhAnh']['tmp_name'];
+                } else {
+                    // Nếu không có ảnh mới, giữ nguyên tên ảnh cũ
+                    $anh_sp = $row['anh_tv']; // Gán tên tệp ảnh cũ vào biến
+                }
 
                 $hoten = $_POST['hoten'];
 
@@ -64,9 +67,7 @@
 
                 $diachi = $_POST['diachi'];
 
-            
-
-                $sql = "UPDATE thanhvien SET taikhoan='$taikhoan' , matkhau='$matkhau', level='$level', anh_tv='$anh_tv', hoten='$hoten', namsinh='$namsinh', sdt ='$sdt', diachi ='$diachi'  WHERE id_tk=".$this_id;
+                $sql = "UPDATE thanhvien SET taikhoan='$taikhoan' , matkhau='$matkhau', level='$level', anh_tv='$anh_sp', hoten='$hoten', namsinh='$namsinh', sdt ='$sdt', diachi ='$diachi'  WHERE id_tk=".$this_id;
                 mysqli_query($conn, $sql);
 
                 move_uploaded_file($anh_tmp_name, 'images/' . $anh_sp);
@@ -108,7 +109,7 @@
             <label>Địa chỉ</label>
             <input type="text" name="diachi" value="<?php echo $row['diachi'] ?>">
 
-            <div class="Sua">
+            <div class="Gui">
                 <button id=submit name="btn">Sửa</button>                 
             </div>
         </form>

@@ -55,19 +55,17 @@
                 $gia_nhap_sp = $_POST['GiaNhap'];
 
                 $nha_cung_cap_sp = $_POST['NhaCungCap'];
-
-                $sl_ton = $_POST['SLTon'];
                 
                 $sl_ton_toithieu = $_POST['SLTonToiThieu'];
 
                 $ngay_nhap = $_POST['NgayNhap'];
 
-                if (empty($ten_sp) || empty($anh_sp) || empty($mota_sp) || empty($loai_sp) || empty($gia_ban_sp) || empty($gia_nhap_sp) || empty($nha_cung_cap_sp) || empty($sl_ton) || empty($sl_ton_toithieu) || empty($ngay_nhap)) {
+                if (empty($ten_sp) || empty($anh_sp) || empty($mota_sp) || empty($loai_sp) || empty($gia_ban_sp) || empty($gia_nhap_sp) || empty($nha_cung_cap_sp) || empty($sl_ton_toithieu) || empty($ngay_nhap)) {
                     echo "Vui lòng điền đầy đủ thông tin vào tất cả các trường.";
                 } else {
                     // Nếu tất cả các trường đã được điền, thực hiện thêm dữ liệu vào cơ sở dữ liệu
-                    $sql = "INSERT INTO sanpham (ten_sp, anh_sp, mota_sp, loai_SP, gia_ban_sp, gia_nhap_sp, nha_cung_cap_sp, sl_ton, sl_ton_toithieu, ngay_nhap)
-                        VALUES ('$ten_sp', '$anh_sp', '$mota_sp', '$loai_sp', '$gia_ban_sp', '$gia_nhap_sp', '$nha_cung_cap_sp', '$sl_ton', '$sl_ton_toithieu', '$ngay_nhap')";
+                    $sql = "INSERT INTO sanpham (ten_sp, anh_sp, mota_sp, loai_SP, gia_ban_sp, gia_nhap_sp, nha_cung_cap_sp, sl_ton_toithieu, ngay_nhap)
+                        VALUES ('$ten_sp', '$anh_sp', '$mota_sp', '$loai_sp', '$gia_ban_sp', '$gia_nhap_sp', '$nha_cung_cap_sp', '$sl_ton_toithieu', '$ngay_nhap')";
             
                     mysqli_query($conn, $sql);
                     move_uploaded_file($anh_tmp_name, 'images/' . $anh_sp);
@@ -99,12 +97,8 @@
                 <label>Giá Nhập</label>
                 <input type="number" name="GiaNhap">
                     
-
                 <label>Nhà Cung Cấp</label>
                 <input type="text" name="NhaCungCap">
-
-                <label>Số lượng tồn</label>
-                <input type="number" name="SLTon">
 
                 <label>Số lượng tồn tối thiểu</label>
                 <input type="number" name="SLTonToiThieu">

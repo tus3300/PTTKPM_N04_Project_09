@@ -59,7 +59,7 @@
         ?>
 
             <form action="ThemLoaiSanPham.php" method="post" enctype="multipart/form-data">
-                <label>Tên tài khoản</label>
+                <label>Tên loại sản phẩm</label>
                 <input type="text" name="ten">
 
                 <div class="Gui">

@@ -35,12 +35,13 @@
 
         <!-- Main content goes here -->
         <form class="timkiem" action="TimKiemNCC.php" method="post" placeholder="Tìm kiếm">
+            <h1>Nhà cung cấp</h1>
             <input type ="text" name="noidung">
             <button type="submit" name ="search"><i class="fas fa-search"></i></button>
         </form>
-        <h1>Nhà cung cấp</h1>
+        
     
-        <p>p>
+       
         
         <?php
 

@@ -62,7 +62,7 @@
         ?>
             <h1>Thêm khách hàng</h1>
             <form  action="ThemKhachHang.php" method="post" enctype="multipart/form-data">
-                <label>Tên nhà cung cấp</label>
+                <label>Tên khách hàng</label>
                 <input type="text" name="TenKH">
 
                 <label>Email</label>

@@ -58,11 +58,11 @@
             }    
         ?>
 
-        <h1>Sửa sản phẩm: <?php echo $row['ten_kh'];?> 
+        <h1>Sửa Khách hàng: <?php echo $row['ten_kh'];?> 
         </h1>
         <form method="post" enctype="multipart/form-data">
 
-            <label>Tên nhà cung cấp</label>
+            <label>Tên khách hàng</label>
             <input type="text" name="TenKH" value="<?php echo $row['ten_kh'] ?>">
 
             <label>Email</label>

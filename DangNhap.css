@@ -24,8 +24,17 @@ h1 {
     font-weight: bold;
 }
 
+.container-login input[type="number"]{
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-sizing: border-box;
+
+}
 .container-login input[type="text"],
-.container-login input[type="password"] {
+.container-login input[type="password"]{
     width: 100%;
     padding: 10px;
     margin: 10px 0;
@@ -46,4 +55,9 @@ h1 {
 
 .container-login button[type="submit"]:hover {
     background-color: #45a049;
+}
+
+.dky-qmk {
+    display:flex;
+    margin-top: 20px;
 }

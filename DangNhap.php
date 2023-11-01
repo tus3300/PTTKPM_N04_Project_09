@@ -6,6 +6,14 @@
     <title>Đăng nhập</title>
     <link rel="stylesheet" href="DangNhap.css">
 </head>
+<style>
+.dky-qmk {
+    display:flex;
+    justify-content: space-around;
+    margin-top: 20px;
+    text-align: none;
+    }
+</style>
 <body>
     <?php
         include "connect.php";
@@ -33,6 +41,7 @@
 
 
    <div class="container-login">
+        
         <h1>Đăng nhập</h1>
         <form action="DangNhap.php" method="post">
             <label>Tên tài khoản</label>
@@ -42,7 +51,13 @@
             <input type="password" name="matkhau" placeholder="Nhập mật khẩu">
 
             <button type="submit" name="dangnhap">Đăng nhập</button>
+            
         </form>
+        <div class="dky-qmk">
+            <div><a href="DangKy.php">Đăng ký</a></div>
+            <!-- <div><a href="QuenMatKhau.php">Quên mật khẩu</a></div> -->
+        </div>
+        
    </div>
 </body>
 </html>

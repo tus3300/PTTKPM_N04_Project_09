@@ -28,7 +28,7 @@
                 <li><a href="KhachHang.php"><i class="fa-solid fa-address-card"></i> Khách Hàng</a></li>
                 <li><a href="BaoCao.php"><i class="fa-solid fa-chart-simple"></i> Báo Cáo</a></li>
                 <li><a href="TaiKhoan.php"><i class="fa-solid fa-user"></i> Tài Khoản</a></li>
-                <li><a href="DangNhap.php"><i class="fa-solid fa-right-from-bracket"></i> Đăng xuất</a></li>
+                <li><a href="DangXuat.php" "><i class="fa-solid fa-right-from-bracket"></i> Đăng xuất</a></li>
             </ul>
         </div>
     </div>
@@ -46,7 +46,7 @@
         <?php
             session_start();
 
-            if(!isset($_SESSION['mySession'])) {
+            if(!isset($_SESSION['taikhoan'])) {
                 header('location:DangNhap.php');
             }
         ?>

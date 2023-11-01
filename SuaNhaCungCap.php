@@ -56,7 +56,7 @@
             }    
         ?>
 
-        <h1>Sửa sản phẩm: <?php echo $row['ten_nha_cc'];?> 
+        <h1>Sửa nhà cung cấp: <?php echo $row['ten_nha_cc'];?> 
         </h1>
         <form method="post" enctype="multipart/form-data">
 

@@ -7,34 +7,20 @@
     <link rel="stylesheet" href="DangNhap.css">
 </head>
 <body>
+   
     <?php
-        include "connect.php";
         session_start();
-        if(isset($_POST["dangnhap"]) ){
-            $taikhoan = $_POST["taikhoan"];
-            $matkhau = $_POST["matkhau"];
-            
-            
-                
-            $sql = "SELECT * FROM thanhvien WHERE taikhoan='$taikhoan' and matkhau='$matkhau' ";
-            
-            $result = mysqli_query($conn, $sql);
-            if(mysqli_num_rows($result) > 0) 
-            {
-                $_SESSION['taikhoan'] = $taikhoan;
-                header("location:TrangChu.php");
 
-            } else {    
-                echo"Tài khoản hoặc mật khẩu sai";
-            }
-
+        if (isset($_SESSION["taikhoan"])){
+            unset($_SESSION["taikhoan"]);
         }
+        header('Location:DangNhap.php');
+        
     ?>
-
 
    <div class="container-login">
         <h1>Đăng nhập</h1>
-        <form action="DangNhap.php" method="post">
+        <form action="DangXuat.php" method="post">
             <label>Tên tài khoản</label>
             <input type="text" name="taikhoan" placeholder="Nhập tên tài khoản">
 
@@ -46,5 +32,3 @@
    </div>
 </body>
 </html>
-
-
